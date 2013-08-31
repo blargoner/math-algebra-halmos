@@ -1,0 +1,95 @@
+% Notes and exercises on Finite Dimensional Vector Spaces
+\documentclass[letterpaper,12pt]{article}
+\usepackage{amsmath,amssymb,amsthm,enumitem,fourier}
+
+\renewcommand{\ker}{\mathcal{N}}
+\newcommand{\range}{\mathcal{R}}
+
+\newcommand{\dsum}{\oplus}
+
+\theoremstyle{definition}
+\newtheorem*{exer}{Exercise}
+
+\theoremstyle{remark}
+\newtheorem*{rmk}{Remark}
+
+\newtheoremstyle{direction}{0.5em}{0.5em}{}{}{}{}{0.5em}{}
+\theoremstyle{direction}
+\newtheorem*{fwd}{\(\implies\)}
+\newtheorem*{bwd}{\(\impliedby\)}
+
+% Meta
+\title{\textit{Finite Dimensional Vector Spaces}\\Notes and Exercises}
+\author{John Peloquin}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Chapter~II}
+\subsection*{\S\ 49}
+\begin{exer}[4]
+Let \(V\)~be a vector space and \(E\)~and~\(F\) be projections on~\(V\).
+\begin{enumerate}[itemsep=0pt]
+\item[(a)] \(\range(E)=\range(F)\) if and only if \(EF=F\) and \(FE=E\).
+\item[(b)] \(\ker(E)=\ker(F)\) if and only if \(EF=E\) and \(FE=F\).
+\end{enumerate}
+\end{exer}
+\begin{proof}
+Recall for a projection~\(P\) on~\(V\), \(V=\range(P)\dsum\ker(P)\) and (\S\ 41, Theorem 2)
+\[\range(P)=\{\,x\in V\mid Px=x\,\}\qquad\ker(P)=\{\,x\in V\mid Px=0\,\}\]
+\begin{enumerate}[itemsep=0pt]
+\item[(a)]
+\begin{fwd}
+If \(x\in V\), then \(Ex\in\range(E)\subseteq\range(F)\), so \(FEx=F(Ex)=Ex\). Therefore \(FE=E\). Similarly \(EF=F\).
+\end{fwd}
+\begin{bwd}
+If \(x\in\range(E)\), then \(x=Eu\) for some \(u\in V\), so
+\[Fx=F(Eu)=FEu=Eu=x\]
+and hence \(x\in\range(F)\). Therefore \(\range(E)\subseteq\range(F)\). Similarly \(\range(F)\subseteq\range(E)\) and hence \(\range(E)=\range(F)\).
+\end{bwd}
+\item[(b)]
+\begin{fwd}
+Since \(V=\range(E)\dsum\ker(E)\), if \(x\in V\) there exist \(u\in\range(E)\) and \(v\in\ker(E)\) with \(x=u+v\). Now
+\begin{align*}
+FEx&=FE(u+v)&&\\
+	&=FEu+FEv&&\\
+	&=Fu+F0&&\text{since \(u\in\range(E)\) and \(v\in\ker(E)\)}\\
+	&=Fu+Fv&&\text{since \(\ker(E)\subseteq\ker(F)\)}\\
+	&=F(u+v)\\
+	&=Fx
+\end{align*}
+Therefore \(FE=F\). Similarly \(EF=E\).
+\end{fwd}
+\begin{bwd}
+If \(x\in\ker(E)\), then
+\[Fx=FEx=F(Ex)=F0=0\]
+so \(x\in\ker(F)\). Therefore \(\ker(E)\subseteq\ker(F)\). Similarly \(\ker(F)\subseteq\ker(E)\) and hence \(\ker(E)=\ker(F)\).\qedhere
+\end{bwd}
+\end{enumerate}
+\end{proof}
+\begin{rmk}
+By (a)~and~(b), \(E=F\) if and only if \(\range(E)=\range(F)\) and \(\ker(E)=\ker(F)\). In other words, projections are characterized by their ranges and null spaces.
+\end{rmk}
+
+\begin{exer}[5]
+If \(E_1,\ldots,E_k\) are projections on~\(V\) with the same range and \(\alpha_1,\ldots,\alpha_k\) are scalars such that \(\sum_i\alpha_i=1\), then \(E=\sum_i\alpha_i E_i\) is a projection.
+\end{exer}
+\begin{proof}
+By Exercise~4(a), we have
+\begin{align*}
+E^2&=\bigl(\,\sum_i\alpha_iE_i\bigr)^2&&\\
+	&=\sum_i\sum_j\alpha_i\alpha_j E_iE_j&&\\
+	&=\sum_i\sum_j\alpha_i\alpha_j E_j&&\text{since \(\range(E_i)=\range(E_j)\)}\\
+	&=\bigl(\,\sum_i\alpha_i\bigr)\bigl(\,\sum_j\alpha_jE_j\bigr)&&\\
+	&=1\cdot E&&\text{since \(\textstyle\sum_i\alpha_i=1\)}\\
+	&=E
+\end{align*}
+Therefore \(E\)~is idempotent, and hence a projection (\S\ 41, Theorem~1).
+\end{proof}
+
+% References
+\begin{thebibliography}{0}
+\bibitem{halmos87} Halmos, P. \textit{Finite Dimensional Vector Spaces.} Springer, 1987.
+\end{thebibliography}
+\end{document}
