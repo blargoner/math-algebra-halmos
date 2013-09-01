@@ -2,8 +2,9 @@
 \documentclass[letterpaper,12pt]{article}
 \usepackage{amsmath,amssymb,amsthm,enumitem,fourier}
 
-\renewcommand{\ker}{\mathcal{N}}
-\newcommand{\range}{\mathcal{R}}
+\newcommand{\C}{\mathbb{C}}
+
+\DeclareMathOperator{\ran}{ran}
 
 \newcommand{\dsum}{\oplus}
 
@@ -25,36 +26,79 @@
 
 \begin{document}
 \maketitle
+\section*{Chapter~I}
+\subsection*{\S~7}
+\begin{exer}[5]\
+\begin{enumerate}
+\item[(a)] Two vectors \(\vec{x}=(x_1,x_2)\) and \(\vec{y}=(y_1,y_2)\) in~\(\C^2\) are linearly dependent if and only if \(x_1y_2=x_2y_1\).
+\item[(b)] Two vectors \(\vec{x}=(x_1,x_2,x_3)\) and \(\vec{y}=(y_1,y_2,y_3)\) in~\(\C^3\) are linearly dependent if and only if \(x_1y_2=x_2y_1\), \(x_1y_3=x_3y_1\), and \(x_2y_3=x_3y_2\).
+\end{enumerate}
+\end{exer}
+\begin{proof}\
+\begin{enumerate}
+\item[(a)]
+\begin{fwd}
+Since \(\vec{x}\)~and~\(\vec{y}\) are linearly dependent, there exist scalars \(\alpha,\beta\in\C\) not both zero such that \(\alpha\vec{x}+\beta\vec{y}=0\). If \(\alpha=0\), then \(\beta\ne0\), in which case we must have \(\vec{y}=0\) and the desired equality holds. Similarly if \(\beta=0\). Therefore we may assume \(\alpha\ne0\) and \(\beta\ne0\). We have
+\begin{align*}
+\alpha x_1&=-\beta y_1\\
+\alpha x_2&=-\beta y_2
+\end{align*}
+Cross multiplying, we have
+\[\alpha\beta x_1y_2=\alpha\beta x_2y_1\]
+Since \(\alpha\beta\ne0\), the desired equality follows.
+\end{fwd}
+\begin{bwd}
+We consider cases of~\(\vec{x}\):
 
+If \(x_1\ne0\) and \(x_2\ne0\), let \(\alpha=y_1/x_1=y_2/x_2\). Then \(\alpha x_1=y_1\) and \(\alpha x_2=y_2\), so \(\alpha\vec{x}-\vec{y}=0\).
+
+If \(x_1\ne0\) and \(x_2=0\), then \(y_2=0\), so \(\alpha\vec{x}-\vec{y}=0\) where \(\alpha=y_1/x_1\). Similarly if \(x_1=0\) and \(x_2\ne0\).
+
+If \(x_1=0\) and \(x_2=0\), then linear independence is witnessed by \(\vec{x}=0\).
+\end{bwd}
+\item[(b)]
+Geometrically, this is evident from~(a) because two vectors in x-y-z space are linearly dependent if and only if their corresponding projections in each of the x-y, x-z, and y-z planes are linearly dependent. Formally:
+\begin{fwd}
+As in~(a), except that now three cross multiplications are performed to yield the three equations.
+\end{fwd}
+\begin{bwd}
+As in~(a), we consider cases of~\(\vec{x}\ne0\):
+
+If \(x_1\ne0\), \(x_2\ne0\), and \(x_3\ne0\), let \(\alpha=y_1/x_1=y_2/x_2=y_3/x_3\). Then \(\alpha\vec{x}-\vec{y}=0\).
+
+If \(x_i=0\), then \(y_i=0\) and the result follows from~(a) applied to the other coordinates.\qedhere
+\end{bwd}
+\end{enumerate}
+\end{proof}
 \section*{Chapter~II}
-\subsection*{\S\ 49}
+\subsection*{\S~49}
 \begin{exer}[4]
 Let \(V\)~be a vector space and \(E\)~and~\(F\) be projections on~\(V\).
 \begin{enumerate}[itemsep=0pt]
-\item[(a)] \(\range(E)=\range(F)\) if and only if \(EF=F\) and \(FE=E\).
+\item[(a)] \(\ran(E)=\ran(F)\) if and only if \(EF=F\) and \(FE=E\).
 \item[(b)] \(\ker(E)=\ker(F)\) if and only if \(EF=E\) and \(FE=F\).
 \end{enumerate}
 \end{exer}
 \begin{proof}
-Recall for a projection~\(P\) on~\(V\), \(V=\range(P)\dsum\ker(P)\) and (\S\ 41, Theorem 2)
-\[\range(P)=\{\,x\in V\mid Px=x\,\}\qquad\ker(P)=\{\,x\in V\mid Px=0\,\}\]
+Recall for a projection~\(P\) on~\(V\), \(V=\ran(P)\dsum\ker(P)\) and (\S~41, Theorem~2)
+\[\ran(P)=\{\,x\in V\mid Px=x\,\}\qquad\ker(P)=\{\,x\in V\mid Px=0\,\}\]
 \begin{enumerate}[itemsep=0pt]
 \item[(a)]
 \begin{fwd}
-If \(x\in V\), then \(Ex\in\range(E)\subseteq\range(F)\), so \(FEx=F(Ex)=Ex\). Therefore \(FE=E\). Similarly \(EF=F\).
+If \(x\in V\), then \(Ex\in\ran(E)\subseteq\ran(F)\), so \(FEx=F(Ex)=Ex\). Therefore \(FE=E\). Similarly \(EF=F\).
 \end{fwd}
 \begin{bwd}
-If \(x\in\range(E)\), then \(x=Eu\) for some \(u\in V\), so
+If \(x\in\ran(E)\), then \(x=Eu\) for some \(u\in V\), so
 \[Fx=F(Eu)=FEu=Eu=x\]
-and hence \(x\in\range(F)\). Therefore \(\range(E)\subseteq\range(F)\). Similarly \(\range(F)\subseteq\range(E)\) and hence \(\range(E)=\range(F)\).
+and hence \(x\in\ran(F)\). Therefore \(\ran(E)\subseteq\ran(F)\). Similarly \(\ran(F)\subseteq\ran(E)\) and hence \(\ran(E)=\ran(F)\).
 \end{bwd}
 \item[(b)]
 \begin{fwd}
-Since \(V=\range(E)\dsum\ker(E)\), if \(x\in V\) there exist \(u\in\range(E)\) and \(v\in\ker(E)\) with \(x=u+v\). Now
+Since \(V=\ran(E)\dsum\ker(E)\), if \(x\in V\) there exist \(u\in\ran(E)\) and \(v\in\ker(E)\) with \(x=u+v\). Now
 \begin{align*}
 FEx&=FE(u+v)&&\\
 	&=FEu+FEv&&\\
-	&=Fu+F0&&\text{since \(u\in\range(E)\) and \(v\in\ker(E)\)}\\
+	&=Fu+F0&&\text{since \(u\in\ran(E)\) and \(v\in\ker(E)\)}\\
 	&=Fu+Fv&&\text{since \(\ker(E)\subseteq\ker(F)\)}\\
 	&=F(u+v)\\
 	&=Fx
@@ -69,7 +113,7 @@ so \(x\in\ker(F)\). Therefore \(\ker(E)\subseteq\ker(F)\). Similarly \(\ker(F)\s
 \end{enumerate}
 \end{proof}
 \begin{rmk}
-By (a)~and~(b), \(E=F\) if and only if \(\range(E)=\range(F)\) and \(\ker(E)=\ker(F)\). In other words, projections are characterized by their ranges and null spaces.
+By (a)~and~(b), \(E=F\) if and only if \(\ran(E)=\ran(F)\) and \(\ker(E)=\ker(F)\). In other words, projections are characterized by their ranges and null spaces.
 \end{rmk}
 
 \begin{exer}[5]
@@ -80,12 +124,12 @@ By Exercise~4(a), we have
 \begin{align*}
 E^2&=\bigl(\,\sum_i\alpha_iE_i\bigr)^2&&\\
 	&=\sum_i\sum_j\alpha_i\alpha_j E_iE_j&&\\
-	&=\sum_i\sum_j\alpha_i\alpha_j E_j&&\text{since \(\range(E_i)=\range(E_j)\)}\\
+	&=\sum_i\sum_j\alpha_i\alpha_j E_j&&\text{since \(\ran(E_i)=\ran(E_j)\)}\\
 	&=\bigl(\,\sum_i\alpha_i\bigr)\bigl(\,\sum_j\alpha_jE_j\bigr)&&\\
 	&=1\cdot E&&\text{since \(\textstyle\sum_i\alpha_i=1\)}\\
 	&=E
 \end{align*}
-Therefore \(E\)~is idempotent, and hence a projection (\S\ 41, Theorem~1).
+Therefore \(E\)~is idempotent, and hence a projection (\S~41, Theorem~1).
 \end{proof}
 
 % References
