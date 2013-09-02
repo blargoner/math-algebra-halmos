@@ -2,12 +2,21 @@
 \documentclass[letterpaper,12pt]{article}
 \usepackage{amsmath,amssymb,amsthm,enumitem,fourier}
 
+% Sets
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 
-\DeclareMathOperator{\ran}{ran}
+% Relations
+\newcommand{\iso}{\cong}
 
+% Operations
 \newcommand{\dsum}{\oplus}
 
+\DeclareMathOperator{\ran}{ran}
+\DeclareMathOperator{\card}{card}
+
+% Theorems
 \theoremstyle{definition}
 \newtheorem*{exer}{Exercise}
 
@@ -92,6 +101,23 @@ We count the number of ways to construct a basis set.
 There are \(2^3=8\) binary vectors. To construct a basis \emph{sequence}, we choose three linearly independent vectors from this set (Theorem~8.2). We see that there are 7~possible choices for the first vector, namely each of the nonzero binary vectors. For each of these choices, there are 6~possible choices for the second vector, namely each of the remaining nonzero binary vectors. Finally, for each of these \(7\cdot6=42\) choices, there are 4~possible choices for the third vector, namely each of the remaining binary vectors not in the span of the first two. This yields \(7\cdot6\cdot4=168\) possible basis sequences.
 
 Since there are \(3\cdot2\cdot1=6\) sequences for each \emph{set} of three vectors, there are \(7\cdot4=28\) basis sets.
+\end{proof}
+\subsection*{\S~9}
+\begin{exer}[2]
+\(\R\)~is not finite dimensional over~\(\Q\).
+\end{exer}
+\begin{proof}
+If it is, then \(\R\iso\Q^n\) for some~\(n\) (Theorem~1). But then
+\[2^{\aleph_0}=\card\R=\card\Q^n=(\card\Q)^n=\aleph_0^n=\aleph_0\]
+---a contradiction since \(2^{\aleph_0}>\aleph_0\).
+\end{proof}
+\begin{exer}[4]
+Two rational vector spaces with the same cardinality need not be isomorphic.
+\end{exer}
+\begin{proof}
+Consider \(\Q\)~and~\(\Q^2\). We have
+\[\card{\Q}=\aleph_0=\aleph_0^2=(\card\Q)^2=\card\Q^2\]
+However, \(\dim\Q=1<2=\dim\Q^2\), so \(\Q\not\iso\Q^2\).
 \end{proof}
 \section*{Chapter~II}
 \subsection*{\S~49}
