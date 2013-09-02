@@ -32,6 +32,7 @@
 \begin{enumerate}
 \item[(a)] Two vectors \(\vec{x}=(x_1,x_2)\) and \(\vec{y}=(y_1,y_2)\) in~\(\C^2\) are linearly dependent if and only if \(x_1y_2=x_2y_1\).
 \item[(b)] Two vectors \(\vec{x}=(x_1,x_2,x_3)\) and \(\vec{y}=(y_1,y_2,y_3)\) in~\(\C^3\) are linearly dependent if and only if \(x_1y_2=x_2y_1\), \(x_1y_3=x_3y_1\), and \(x_2y_3=x_3y_2\).
+\item[(c)] There is no set of three linearly independent vectors in~\(\C^2\).
 \end{enumerate}
 \end{exer}
 \begin{proof}\
@@ -57,7 +58,6 @@ If \(x_1\ne0\) and \(x_2=0\), then \(y_2=0\), so \(\alpha\vec{x}-\vec{y}=0\) whe
 If \(x_1=0\) and \(x_2=0\), then linear independence is witnessed by \(\vec{x}=0\).
 \end{bwd}
 \item[(b)]
-Geometrically, this is evident from~(a) because two vectors in x-y-z space are linearly dependent if and only if their corresponding projections in each of the x-y, x-z, and y-z planes are linearly dependent. Formally:
 \begin{fwd}
 As in~(a), except that now three cross multiplications are performed to yield the three equations.
 \end{fwd}
@@ -66,8 +66,21 @@ As in~(a), we consider cases of~\(\vec{x}\ne0\):
 
 If \(x_1\ne0\), \(x_2\ne0\), and \(x_3\ne0\), let \(\alpha=y_1/x_1=y_2/x_2=y_3/x_3\). Then \(\alpha\vec{x}-\vec{y}=0\).
 
-If \(x_i=0\), then \(y_i=0\) and the result follows from~(a) applied to the other coordinates.\qedhere
+If \(x_i=0\), then \(y_i=0\) and the result follows from~(a) applied to the other coordinates.
 \end{bwd}
+Note geometrically this result is immediate from~(a) because two vectors in x-y-z space are linearly dependent if and only if their corresponding projections in each of the x-y, x-z, and y-z planes are linearly dependent.
+\item[(c)]
+We prove that any set of three vectors in~\(\C^2\) is linearly dependent. More specifically, if \(\vec{x},\vec{y},\vec{z}\in\C^2\) and \(\vec{x}\)~and~\(\vec{y}\) are linearly independent, then \(\vec{z}\)~is a linear combination of \(\vec{x}\)~and~\(\vec{y}\).\footnote{Equivalently, any set of two linearly independent vectors in~\(\C^2\) also spans~\(\C^2\) and hence is a basis for~\(\C^2\). See also Theorem~8.2.}
+
+Indeed, suppose \(\vec{x}=(x_1,x_2)\) and \(\vec{y}=(y_1,y_2)\) are linearly independent. By part~(a), \(\delta=x_1y_2-x_2y_1\ne0\). Set
+\[
+\alpha=\frac{y_2z_1-y_1z_2}{\delta}
+\qquad
+\beta=\frac{x_1z_2-x_2z_1}{\delta}
+\]
+It is immediate that \(\alpha\vec{x}+\beta\vec{y}=\vec{z}\), as desired.
+
+Note this result is also immediate from the fact that \(\dim\C^2=2<3\) (see Theorem~8.2).\qedhere
 \end{enumerate}
 \end{proof}
 \section*{Chapter~II}
@@ -80,7 +93,7 @@ Let \(V\)~be a vector space and \(E\)~and~\(F\) be projections on~\(V\).
 \end{enumerate}
 \end{exer}
 \begin{proof}
-Recall for a projection~\(P\) on~\(V\), \(V=\ran(P)\dsum\ker(P)\) and (\S~41, Theorem~2)
+Recall for a projection~\(P\) on~\(V\), \(V=\ran(P)\dsum\ker(P)\) and (Theorem~41.2)
 \[\ran(P)=\{\,x\in V\mid Px=x\,\}\qquad\ker(P)=\{\,x\in V\mid Px=0\,\}\]
 \begin{enumerate}[itemsep=0pt]
 \item[(a)]
@@ -129,7 +142,7 @@ E^2&=\bigl(\,\sum_i\alpha_iE_i\bigr)^2&&\\
 	&=1\cdot E&&\text{since \(\textstyle\sum_i\alpha_i=1\)}\\
 	&=E
 \end{align*}
-Therefore \(E\)~is idempotent, and hence a projection (\S~41, Theorem~1).
+Therefore \(E\)~is idempotent, and hence a projection (Theorem~41.1).
 \end{proof}
 
 % References
