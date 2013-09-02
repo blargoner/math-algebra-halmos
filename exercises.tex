@@ -83,6 +83,16 @@ It is immediate that \(\alpha\vec{x}+\beta\vec{y}=\vec{z}\), as desired.
 Note this result is also immediate from the fact that \(\dim\C^2=2<3\) (see Theorem~8.2).\qedhere
 \end{enumerate}
 \end{proof}
+\begin{exer}[9]
+There are 28~basis sets for~\(\C^3\) consisting of binary vectors (vectors each of whose coordinates is 0~or~1).
+\end{exer}
+\begin{proof}
+We count the number of ways to construct a basis set.
+
+There are \(2^3=8\) binary vectors. To construct a basis \emph{sequence}, we choose three linearly independent vectors from this set (Theorem~8.2). We see that there are 7~possible choices for the first vector, namely each of the nonzero binary vectors. For each of these choices, there are 6~possible choices for the second vector, namely each of the remaining nonzero binary vectors. Finally, for each of these \(7\cdot6=42\) choices, there are 4~possible choices for the third vector, namely each of the remaining binary vectors not in the span of the first two. This yields \(7\cdot6\cdot4=168\) possible basis sequences.
+
+Since there are \(3\cdot2\cdot1=6\) sequences for each \emph{set} of three vectors, there are \(7\cdot4=28\) basis sets.
+\end{proof}
 \section*{Chapter~II}
 \subsection*{\S~49}
 \begin{exer}[4]
