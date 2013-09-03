@@ -11,10 +11,13 @@
 \newcommand{\iso}{\cong}
 
 % Operations
+\newcommand{\union}{\cup}
+\newcommand{\sect}{\cap}
 \newcommand{\dsum}{\oplus}
 
 \DeclareMathOperator{\ran}{ran}
 \DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\spn}{span}
 
 % Theorems
 \theoremstyle{definition}
@@ -119,6 +122,56 @@ Consider \(\Q\)~and~\(\Q^2\). We have
 \[\card{\Q}=\aleph_0=\aleph_0^2=(\card\Q)^2=\card\Q^2\]
 However, \(\dim\Q=1<2=\dim\Q^2\), so \(\Q\not\iso\Q^2\).
 \end{proof}
+\subsection*{\S~12}
+\begin{exer}[2]
+If \(V\)~is a vector space and \(M\)~and~\(N\) are subspaces of~\(V\) satisfying \(V\subseteq M\union N\), then \(V=M\) or \(V=N\).
+\end{exer}
+\begin{proof}
+Suppose \(V\ne M\) and \(V\ne N\). Then there exist vectors \(x\in V-M\) and \(y\in V-N\). Since \(V\subseteq M\union N\), we must have \(x\in N\) and \(y\in M\) and \(z=x+y\in M\union N\). But if \(z\in M\) then \(x=z-y\in M\), and if \(z\in N\) then \(y=z-x\in N\)---a contradiction in either case.
+\end{proof}
+\begin{exer}[6]
+Let \(V\)~be a vector space and \(M\)~be a subspace of~\(V\).
+\begin{enumerate}
+\item[(a)] If \(M\)~is nontrivial (\(M\ne0\) and \(M\ne V\)), then \(M\)~does not have a unique complement.
+\item[(b)] If \(V\)~is \(n\)-dimensional and \(M\)~is \(m\)-dimensional, then every complement of~\(M\) is (\(n-m\))-dimensional.
+\end{enumerate}
+\end{exer}
+\begin{proof}\
+\begin{enumerate}
+\item[(a)] We claim that if \(x\in V-M\), then there exists a complement~\(N\) of~\(M\) with \(x\in N\). Indeed, if \(B\)~is any basis of~\(M\), then \(B\union\{x\}\) is linearly independent in~\(V\) and hence can be extended to a basis~\(B'\) of~\(V\). The subspace \(N=\spn(B'-B)\) is the desired complement.
+
+By this result, if \(M\)~has unique complement~\(N\), then \(V-M\subseteq N\), so that \(V\subseteq M\union N\). But by exercise~2, this implies \(V=M\) or \(V=N\). Since \(M\)~and~\(N\) are complements, \(V=N\) implies \(M=0\). Therefore, \(M\)~must be trivial.
+\item[(b)]
+If \(N\)~is a complement of~\(M\), let \(\{x_1,\ldots,x_m\}\) be a basis of~\(M\) and \(\{y_1,\ldots,y_k\}\) be a basis of~\(N\). Then \(\{x_1,\ldots,x_m,y_1,\ldots,y_k\}\) is a basis of~\(V\). Indeed, it spans~\(V\) since \(V=M+N\), and it is linearly independent since \(M\sect N=0\). Therefore \(n=m+k\), so \(\dim N=k=n-m\) as desired.\qedhere
+\end{enumerate}
+\end{proof}
+\begin{exer}[7]
+Let \(V\)~be a vector space and \(M\)~and~\(N\) be subspaces of~\(V\).
+\begin{enumerate}
+\item[(a)] If \(V\)~is 5-dimensional and \(M\)~and~\(N\) are 3-dimensional, then \(M\)~and~\(N\) are not disjoint.
+\item[(b)] If \(M\)~and~\(N\) are finite dimensional, then
+\[\dim M+\dim N=\dim(M+N)+\dim(M\sect N)\]
+\end{enumerate}
+\end{exer}
+\begin{proof}\
+\begin{enumerate}
+\item[(a)] Since \(M+N\)~is a subspace of~\(V\), \(\dim(M+N)\le5\) (Theorem~1). By part~(b),
+\[\dim(M\sect N)=\dim M+\dim N-\dim(M+N)\ge3+3-5=1>0\]
+Therefore \(M\sect N\ne0\).
+\item[(b)] Let \(m=\dim M\) and \(n=\dim N\). Since \(M\sect N\)~is a subspace of both \(M\)~and~\(N\), we know \(M\sect N\)~is finite dimensional and \(k=\dim(M\sect N)\le\min(m,n)\) (Theorem~1). Let \(\{x_1,\ldots,x_k\}\) be a basis of~\(M\sect N\). Extend it to a basis \(\{x_1,\ldots,x_k,y_1,\ldots,y_{m-k}\}\) of~\(M\) and to a basis \(\{x_1,\ldots,x_k,z_1,\ldots,z_{n-k}\}\) of~\(N\) (Theorem~2). Then
+\[\{x_1,\ldots,x_k,y_1,\ldots,y_{m-k},z_1,\ldots,z_{n-k}\}\]
+is a basis of~\(M+N\). Indeed, spanning and linear independence follow from the corresponding properties of the bases for \(M\)~and~\(N\). Therefore \(M+N\)~is finite dimensional and
+\begin{align*}
+\dim(M+N)&=k+(m-k)+(n-k)\\
+	&=m+n-k\\
+	&=\dim M+\dim N-\dim(M\sect N)\qedhere
+\end{align*}
+\end{enumerate}
+\end{proof}
+\begin{rmk}
+This result is analogous to the inclusion-exclusion principle for sets:
+\[\card(A\union B)=\card A+\card B-\card(A\sect B)\]
+\end{rmk}
 \section*{Chapter~II}
 \subsection*{\S~49}
 \begin{exer}[4]
