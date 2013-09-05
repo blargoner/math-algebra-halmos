@@ -3,9 +3,11 @@
 \usepackage{amsmath,amssymb,amsthm,enumitem,fourier}
 
 % Sets
+\newcommand{\F}{\mathbb{F}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
+\renewcommand{\P}{\mathcal{P}}
 
 % Relations
 \newcommand{\iso}{\cong}
@@ -172,6 +174,44 @@ is a basis of~\(M+N\). Indeed, spanning and linear independence follow from the 
 This result is analogous to the inclusion-exclusion principle for sets:
 \[\card(A\union B)=\card A+\card B-\card(A\sect B)\]
 \end{rmk}
+\subsection*{\S~14}
+\begin{exer}[4]
+Let \((\alpha_i)\in\C^{\infty}\). For \(x=\sum_{i=0}^n\xi_i t^i\in\P\), let \(y(x)=\sum_{i=0}^n\xi_i\alpha_i\). Then \(y\in\P'\), and every element in~\(\P'\) is of this form for suitable~\(\alpha_i\).
+\end{exer}
+\begin{proof}
+Since the coefficients of~\(x\) are uniquely determined, \(y\)~is a well defined function from~\(\P\) to~\(\C\). If \(u=\sum_{i=0}^m\mu_i t^i\), \(v=\sum_{i=0}^n\nu_i t^i\), and \(\mu,\nu\in\C\), we may assume \(m=n\) (using coefficients of zero), and
+\begin{align*}
+y(\mu u+\nu v)&=y\bigl(\,\mu\sum\mu_i t^i+\nu\sum\nu_i t^i\,\bigr)\\
+	&=y\bigl(\,\sum[\,\mu\mu_i+\nu\nu_i]t^i\,\bigr)\\
+	&=\sum(\,\mu\mu_i+\nu\nu_i)\alpha_i\\
+	&=\mu\sum\mu_i\alpha_i+\nu\sum\nu_i\alpha_i\\
+	&=\mu y(u)+\nu y(v)
+\end{align*}
+Therefore \(y\)~is linear and hence \(y\in\P'\).
+
+If \(z\in\P'\) is arbitrary, set \(\beta_i=[t^i,z]\). Then
+\[\bigl[\,\sum\xi_i t^i,z\bigr]=\sum\xi_i[t^i,z]=\sum\xi_i\beta_i\]
+so \(z\)~has the desired form for \((\beta_i)\in\C^{\infty}\).
+\end{proof}
+\begin{exer}[5]
+If \(y\in V'\) and \(y\ne0\), and \(\alpha\in\F\) is an arbitrary scalar, then there exists \(x\in V\) with \([x,y]=\alpha\).
+\end{exer}
+\begin{proof}
+Since \(y\ne0\), there exists \(x\in V\) with \(\beta=[x,y]\ne0\). Set \(\gamma=\alpha/\beta\). Then
+\[[\gamma x,y]=\gamma[x,y]=\gamma\beta=\alpha\qedhere\]
+\end{proof}
+\begin{exer}[6]
+If \(y,z\in V'\) and \([x,y]=0\) whenever \([x,z]=0\), then \(y=\alpha z\) for some \(\alpha\in\F\).
+\end{exer}
+\begin{proof}
+If \(y=0\), take \(\alpha=0\). Otherwise, choose \(x_0\in V\) with \(\beta=[x_0,y]\ne0\). We must have \(\gamma=[x_0,z]\ne0\). Set \(\alpha=\beta/\gamma\). We claim \(y=\alpha z\).
+
+Indeed, if there exists \(x\in V\) with \(\delta=[x,y]\ne[x,\alpha z]\), we must have \(\epsilon=[x,z]\ne0\). Set \(\zeta=\gamma/\epsilon\) and \(v=x_0-\zeta x\). Then
+\[[v,z]=[x_0-\zeta x,z]=[x_0,z]-\zeta[x,z]=\gamma-\zeta\epsilon=\gamma-\gamma=0\]
+but
+\[[v,y]=[x_0-\zeta x,y]=[x_0,y]-\zeta[x,y]=\beta-\zeta\delta=\frac{\gamma(\alpha\epsilon-\delta)}{\epsilon}\ne0\]
+---a contradiction.
+\end{proof}
 \section*{Chapter~II}
 \subsection*{\S~49}
 \begin{exer}[4]
