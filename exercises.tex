@@ -16,10 +16,14 @@
 \newcommand{\union}{\cup}
 \newcommand{\sect}{\cap}
 \newcommand{\dsum}{\oplus}
+\newcommand{\bigunion}{\bigcup}
+\newcommand{\bigsect}{\bigcap}
 
 \DeclareMathOperator{\ran}{ran}
 \DeclareMathOperator{\card}{card}
 \DeclareMathOperator{\spn}{span}
+
+\newcommand{\restrict}[2]{{#1}|_{#2}}
 
 % Theorems
 \theoremstyle{definition}
@@ -40,7 +44,9 @@
 
 \begin{document}
 \maketitle
+% Chapter I
 \section*{Chapter~I}
+% Section 7
 \subsection*{\S~7}
 \begin{exer}[5]\
 \begin{enumerate}
@@ -97,6 +103,7 @@ It is immediate that \(\alpha\vec{x}+\beta\vec{y}=\vec{z}\), as desired.
 Note this result is also immediate from the fact that \(\dim\C^2=2<3\) (see Theorem~8.2).\qedhere
 \end{enumerate}
 \end{proof}
+
 \begin{exer}[9]
 There are 28~basis sets for~\(\C^3\) consisting of binary vectors (vectors each of whose coordinates is 0~or~1).
 \end{exer}
@@ -107,6 +114,8 @@ There are \(2^3=8\) binary vectors. To construct a basis \emph{sequence}, we cho
 
 Since there are \(3\cdot2\cdot1=6\) sequences for each \emph{set} of three vectors, there are \(7\cdot4=28\) basis sets.
 \end{proof}
+
+% Section 9
 \subsection*{\S~9}
 \begin{exer}[2]
 \(\R\)~is not finite dimensional over~\(\Q\).
@@ -116,6 +125,7 @@ If it is, then \(\R\iso\Q^n\) for some~\(n\) (Theorem~1). But then
 \[2^{\aleph_0}=\card\R=\card\Q^n=(\card\Q)^n=\aleph_0^n=\aleph_0\]
 ---a contradiction since \(2^{\aleph_0}>\aleph_0\).
 \end{proof}
+
 \begin{exer}[4]
 Two rational vector spaces with the same cardinality need not be isomorphic.
 \end{exer}
@@ -124,6 +134,8 @@ Consider \(\Q\)~and~\(\Q^2\). We have
 \[\card{\Q}=\aleph_0=\aleph_0^2=(\card\Q)^2=\card\Q^2\]
 However, \(\dim\Q=1<2=\dim\Q^2\), so \(\Q\not\iso\Q^2\).
 \end{proof}
+
+% Section 12
 \subsection*{\S~12}
 \begin{exer}[2]
 If \(V\)~is a vector space and \(M\)~and~\(N\) are subspaces of~\(V\) satisfying \(V\subseteq M\union N\), then \(V=M\) or \(V=N\).
@@ -131,6 +143,7 @@ If \(V\)~is a vector space and \(M\)~and~\(N\) are subspaces of~\(V\) satisfying
 \begin{proof}
 Suppose \(V\ne M\) and \(V\ne N\). Then there exist vectors \(x\in V-M\) and \(y\in V-N\). Since \(V\subseteq M\union N\), we must have \(x\in N\) and \(y\in M\) and \(z=x+y\in M\union N\). But if \(z\in M\) then \(x=z-y\in M\), and if \(z\in N\) then \(y=z-x\in N\)---a contradiction in either case.
 \end{proof}
+
 \begin{exer}[6]
 Let \(V\)~be a vector space and \(M\)~be a subspace of~\(V\).
 \begin{enumerate}
@@ -142,11 +155,12 @@ Let \(V\)~be a vector space and \(M\)~be a subspace of~\(V\).
 \begin{enumerate}
 \item[(a)] We claim that if \(x\in V-M\), then there exists a complement~\(N\) of~\(M\) with \(x\in N\). Indeed, if \(B\)~is any basis of~\(M\), then \(B\union\{x\}\) is linearly independent in~\(V\) and hence can be extended to a basis~\(B'\) of~\(V\). The subspace \(N=\spn(B'-B)\) is the desired complement.
 
-By this result, if \(M\)~has unique complement~\(N\), then \(V-M\subseteq N\), so that \(V\subseteq M\union N\). But by exercise~2, this implies \(V=M\) or \(V=N\). Since \(M\)~and~\(N\) are complements, \(V=N\) implies \(M=0\). Therefore, \(M\)~must be trivial.
+By this result, if \(M\)~has unique complement~\(N\), then \(V-M\subseteq N\), so that \(V\subseteq M\union N\). But this implies \(V=M\) or \(V=N\) (Exercise~2). Since \(M\)~and~\(N\) are complements, \(V=N\) implies \(M=0\). Therefore, \(M\)~must be trivial.
 \item[(b)]
 If \(N\)~is a complement of~\(M\), let \(\{x_1,\ldots,x_m\}\) be a basis of~\(M\) and \(\{y_1,\ldots,y_k\}\) be a basis of~\(N\). Then \(\{x_1,\ldots,x_m,y_1,\ldots,y_k\}\) is a basis of~\(V\). Indeed, it spans~\(V\) since \(V=M+N\), and it is linearly independent since \(M\sect N=0\). Therefore \(n=m+k\), so \(\dim N=k=n-m\) as desired.\qedhere
 \end{enumerate}
 \end{proof}
+
 \begin{exer}[7]
 Let \(V\)~be a vector space and \(M\)~and~\(N\) be subspaces of~\(V\).
 \begin{enumerate}
@@ -174,6 +188,8 @@ is a basis of~\(M+N\). Indeed, spanning and linear independence follow from the 
 This result is analogous to the inclusion-exclusion principle for sets:
 \[\card(A\union B)=\card A+\card B-\card(A\sect B)\]
 \end{rmk}
+
+% Section 14
 \subsection*{\S~14}
 \begin{exer}[4]
 Let \((\alpha_i)\in\C^{\infty}\). For \(x=\sum_{i=0}^n\xi_i t^i\in\P\), let \(y(x)=\sum_{i=0}^n\xi_i\alpha_i\). Then \(y\in\P'\), and every element in~\(\P'\) is of this form for suitable~\(\alpha_i\).
@@ -193,6 +209,7 @@ If \(z\in\P'\) is arbitrary, set \(\beta_i=[t^i,z]\). Then
 \[\bigl[\,\sum\xi_i t^i,z\bigr]=\sum\xi_i[t^i,z]=\sum\xi_i\beta_i\]
 so \(z\)~has the desired form for \((\beta_i)\in\C^{\infty}\).
 \end{proof}
+
 \begin{exer}[5]
 If \(y\in V'\) and \(y\ne0\), and \(\alpha\in\F\) is an arbitrary scalar, then there exists \(x\in V\) with \([x,y]=\alpha\).
 \end{exer}
@@ -200,6 +217,7 @@ If \(y\in V'\) and \(y\ne0\), and \(\alpha\in\F\) is an arbitrary scalar, then t
 Since \(y\ne0\), there exists \(x\in V\) with \(\beta=[x,y]\ne0\). Set \(\gamma=\alpha/\beta\). Then
 \[[\gamma x,y]=\gamma[x,y]=\gamma\beta=\alpha\qedhere\]
 \end{proof}
+
 \begin{exer}[6]
 If \(y,z\in V'\) and \([x,y]=0\) whenever \([x,z]=0\), then \(y=\alpha z\) for some \(\alpha\in\F\).
 \end{exer}
@@ -212,7 +230,95 @@ but
 \[[v,y]=[x_0-\zeta x,y]=[x_0,y]-\zeta[x,y]=\beta-\zeta\delta=\frac{\gamma(\alpha\epsilon-\delta)}{\epsilon}\ne0\]
 ---a contradiction.
 \end{proof}
+
+% Section 17
+\subsection*{\S~17}
+\begin{exer}[3]
+If \(V\)~is a vector space and \(y\in V'\), define
+\[K=\ker y=\{\,x\in V\mid [x,y]=0\,\}\]
+Then \(K\)~is a subspace of~\(V\) and if \(n=\dim V\), then
+\[\dim K=\begin{cases}
+n&\text{if }y=0\\
+n-1&\text{if }y\ne0
+\end{cases}\]
+\end{exer}
+\begin{proof}
+We have \(0\in K\) since \([0,y]=0\), and if \(u,v\in K\) and \(\alpha,\beta\in\F\), then
+\[[\alpha u+\beta v,y]=\alpha[u,y]+\beta[v,y]=\alpha\cdot0+\beta\cdot0=0\]
+so \(\alpha u+\beta v\in K\). Therefore \(K\)~is a subspace of~\(V\).
+
+If \(n=\dim V\), let \(\{x_1,\ldots,x_k,x_{k+1},\ldots,x_n\}\) be a basis of~\(V\) where \(\{x_1,\ldots,x_k\}\) is a basis of~\(K\) (Theorem~12.2). Let \(U=\spn\{x_{k+1},\ldots,x_n\}\). Then
+\[\dim V=n=k+(n-k)=\dim K+\dim U\]
+We claim \(\restrict{y}{U}\)~is injective. Indeed, if \(u,v\in U\) and \([u,y]=[v,y]\), then \([u-v,y]=0\), so \(u-v\in K\). Write \(u=\sum_j\alpha_j x_{k+j}\) and \(v=\sum_j\beta_j x_{k+j}\). Then \(u-v=\sum_j(\alpha_j-\beta_j)x_{k+j}\). Now for the basis of~\(K\) there exist~\(\gamma_i\in\F\) such that
+\[\sum_{j=1}^{n-k}(\alpha_j-\beta_j)x_{k+j}=\sum_{i=1}^k\gamma_i x_i\]
+By linear independence of the basis for~\(V\), we must have \(\alpha_j-\beta_j=\gamma_i=0\) for all~\(i,j\). In particular, \(\alpha_j=\beta_j\) for all~\(j\), so \(u=v\), establishing injectivity.
+
+We also claim \(\ran\restrict{y}{U}=\ran y\). Indeed, trivially \(\ran\restrict{y}{U}\subseteq\ran y\). Conversely, for any \(x=\sum_i\alpha_i x_i\in V\), we have
+\begin{align*}
+[x,y]&=[\alpha_1x_1+\cdots+\alpha_kx_k+\alpha_{k+1}x_{k+1}+\cdots+\alpha_n x_n,y]\\
+	&=\alpha_1[x_1,y]+\cdots+\alpha_k[x_k,y]+\alpha_{k+1}[x_{k+1},y]+\cdots+\alpha_n[x_n,y]\\
+	&=\alpha_1\cdot0+\cdots+\alpha_k\cdot0+\alpha_{k+1}[x_{k+1},y]+\cdots+\alpha_n[x_n,y]\\
+	&=[\alpha_{k+1}x_{k+1}+\cdots+\alpha_n x_n,y]
+\end{align*}
+Since \(u=\sum_j\alpha_{k+j}x_{k+j}\in U\), this shows \(\ran y\subseteq\ran\restrict{y}{U}\). Hence \(\restrict{y}{U}:U\iso\ran y\).
+
+Now if \(y=0\), then \(\ran y=0\) so \(\dim U=0\) and \(\dim K=n\). If \(y\ne0\), then \(\ran y=\F\) (Exercise~14.5), so \(\dim U=\dim\F=1\) and \(\dim K=n-1\).
+\end{proof}
+\begin{rmk}
+This result is just a special case of rank nullity (Theorem~50.1), which asserts that \(\dim V=\dim\ker T+\dim\ran T\) for any linear transformation~\(T\) on~\(V\).
+\end{rmk}
+
+\begin{exer}[4]
+Let \(y\in(\C^3)'\) defined by
+\[(x_1,x_2,x_3)\mapsto x_1+x_2+x_3\]
+Then \(B=\{(1,0,-1),(0,1,-1)\}\) is a basis of~\(\ker y\).
+\end{exer}
+\begin{proof}
+Clearly, \(B\subseteq\ker y\) and \(B\)~is linearly independent. Since \(y\ne0\), \(\dim\ker y=3-1=2\) (Exercise~3). Therefore \(B\)~is a basis of~\(\ker y\) (Theorem~8.2).
+\end{proof}
+
+\begin{exer}[5]
+If \(V\)~is an \(n\)-dimensional vector space and \(y_1,\ldots,y_m\) are linear functionals on~\(V\) where \(m<n\), then there exists a nonzero \(x\in V\) such that \([x,y_j]=0\) for all \(1\le j\le m\).
+\end{exer}
+\begin{proof}
+We need to show that \(\bigsect\ker y_j\ne0\). First, we may assume without loss of generality that \(y_j\ne0\) for all \(1\le j\le m\), so \(\dim\ker y_j=n-1\) for all \(1\le j\le m\) (Exercise~3). We claim that
+\[\dim\bigsect_{j=1}^m\ker y_j\ge n-m\]
+The desired result then follows since \(n-m>0\).
+
+We proceed by induction on~\(m\). The claim is true for \(m=1\) by the above. For \(m>1\), we have
+\[\bigsect_{j=1}^m\ker y_j=\bigl(\bigsect_{j=1}^{m-1}\ker y_j\bigr)\sect\ker y_m\]
+Therefore, by the inclusion-exclusion principle for dimension (Exercise~12.7) and the induction hypothesis, we have
+\begin{align*}
+\dim\bigsect_{j=1}^m\ker y_j&=\dim\Bigl[\bigl(\bigsect_{j=1}^{m-1}\ker y_j\bigr)\sect\ker y_m\Bigr]\\
+	&=\dim\bigsect_{j=1}^{m-1}\ker y_j+\dim\ker y_m-\dim\Bigl[\bigsect_{j=1}^{m-1}\ker y_j+\ker y_m\Bigr]\\
+	&\ge[n-(m-1)]+(n-1)-n\\
+	&=n-m\qedhere
+\end{align*}
+\end{proof}
+\begin{rmk}
+This result implies that a homogeneous system of \(m\)~linear equations in \(n\)~variables always has a nontrivial solution when \(m<n\). Indeed, consider the system
+\begin{equation*}
+\left\lbrace
+\begin{aligned}
+\alpha_{11}x_1+\cdots+\alpha_{1n}x_n&=0\\
+\phantom{\alpha_{i1}}\vdots\phantom{+\cdots+a_{in}}\vdots\phantom{x_{in}}&\phantom{=}\vdots\\
+\alpha_{m1}x_1+\cdots+\alpha_{mn}x_n&=0
+\end{aligned}
+\right.\qquad(\alpha_{ij}\in\F)
+\end{equation*}
+For \(x=(x_1,\ldots,x_n)\in\F^n\), define~\(y_j\) by \([x,y_j]=\sum_i\alpha_{ij}x_i\) for \(1\le j\le m\). Clearly this system has a nontrivial solution if and only if there exists a nonzero \(x\in\F^n\) such that \([x,y_j]=0\) for all \(1\le j\le m\), which is true by this result.
+\end{rmk}
+
+\begin{exer}[7]
+If \(V\)~is an \(n\)-dimensional vector space and \(0\le m\le n\), then the number of \(m\)-dimensional subspaces of~\(V\) is equal to the number of \((n-m)\)-dimensional subspaces.
+\end{exer}
+\begin{proof}
+Fix a basis of~\(V\) and assume that \(V=V'=V''\) (Theorems 15.2~and~16.1). Now the mapping \(M\mapsto M^0\) sends each \(m\)-dimensional subspace to an \((n-m)\)-dimensional subspace (Theorem~1). Moreover, this mapping is its own inverse (Theorem~2), hence it is bijective and witnesses cardinal equality.
+\end{proof}
+
+% Chapter II
 \section*{Chapter~II}
+% Section 49
 \subsection*{\S~49}
 \begin{exer}[4]
 Let \(V\)~be a vector space and \(E\)~and~\(F\) be projections on~\(V\).
