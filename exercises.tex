@@ -23,6 +23,7 @@
 \DeclareMathOperator{\card}{card}
 \DeclareMathOperator{\spn}{span}
 
+\newcommand{\pair}[2]{\langle{#1},{#2}\rangle}
 \newcommand{\restrict}[2]{{#1}|_{#2}}
 
 % Theorems
@@ -314,6 +315,31 @@ If \(V\)~is an \(n\)-dimensional vector space and \(0\le m\le n\), then the numb
 \end{exer}
 \begin{proof}
 Fix a basis of~\(V\) and assume that \(V=V'=V''\) (Theorems 15.2~and~16.1). Now the mapping \(M\mapsto M^0\) sends each \(m\)-dimensional subspace to an \((n-m)\)-dimensional subspace (Theorem~1). Moreover, this mapping is its own inverse (Theorem~2), hence it is bijective and witnesses cardinal equality.
+\end{proof}
+
+% Section 20
+\begin{exer}[3]
+There exists a vector space~\(V\) with subspaces \(M,N_1,N_2\) such that \(V=M\dsum N_1=M\dsum N_2\) but \(N_1\ne N_2\).
+\end{exer}
+\begin{proof}
+Let \(V=\R^2\), \(M\)~be the subspace consisting of vectors of the form~\((x,0)\) (the horizontal axis), \(N_1\)~be the subspace consisting of vectors of the form~\((0,y)\) (the vertical axis), and \(N_2\)~be the subspace consisting of vectors of the form~\((x,x)\) (the diagonal line \(y=x\)).
+\end{proof}
+\begin{rmk}
+This result shows that there is no cancellation law for direct sums.
+\end{rmk}
+
+\begin{exer}[4]
+Let \(U,V,W\) be vector spaces.
+\begin{enumerate}
+\item[(a)] \((U\dsum V)\dsum W\iso U\dsum(V\dsum W)\)
+\item[(b)] \(U\dsum V\iso V\dsum U\)
+\end{enumerate}
+\end{exer}
+\begin{proof}\
+\begin{enumerate}
+\item[(a)] The mapping \(\pair{\pair{u}{v}}{w}\mapsto\pair{u}{\pair{v}{w}}\) is clearly bijective and linear.
+\item[(b)] The mapping \(\pair{u}{v}\mapsto\pair{v}{u}\) is clearly bijective and linear.\qedhere
+\end{enumerate}
 \end{proof}
 
 % Chapter II
