@@ -317,7 +317,8 @@ If \(V\)~is an \(n\)-dimensional vector space and \(0\le m\le n\), then the numb
 Fix a basis of~\(V\) and assume that \(V=V'=V''\) (Theorems 15.2~and~16.1). Now the mapping \(M\mapsto M^0\) sends each \(m\)-dimensional subspace to an \((n-m)\)-dimensional subspace (Theorem~1). Moreover, this mapping is its own inverse (Theorem~2), hence it is bijective and witnesses cardinal equality.
 \end{proof}
 
-% Section 20
+% Section 20 
+\subsection*{\S~20}
 \begin{exer}[3]
 There exists a vector space~\(V\) with subspaces \(M,N_1,N_2\) such that \(V=M\dsum N_1=M\dsum N_2\) but \(N_1\ne N_2\).
 \end{exer}
@@ -340,6 +341,43 @@ Let \(U,V,W\) be vector spaces.
 \item[(a)] The mapping \(\pair{\pair{u}{v}}{w}\mapsto\pair{u}{\pair{v}{w}}\) is clearly bijective and linear.
 \item[(b)] The mapping \(\pair{u}{v}\mapsto\pair{v}{u}\) is clearly bijective and linear.\qedhere
 \end{enumerate}
+\end{proof}
+
+% Section 22
+\subsection*{\S~22}
+\begin{exer}[4]
+Let \(V\)~be a vector space and \(M\)~be a subspace of~\(V\). In addition, let \(\pi:V\to V/M\) be the mapping \(x\mapsto x+M\).
+\begin{enumerate}
+\item[(a)] The mapping \(\phi:y\mapsto y\pi\) is an isomorphism from~\((V/M)'\) to~\(M^0\).
+\item[(b)] The mapping \(\psi:y+M^0\mapsto\restrict{y}{M}\) is an isomorphism from~\(V'/M^0\) to~\(M'\).
+\end{enumerate}
+\end{exer}
+\begin{proof}\
+\begin{enumerate}
+\item[(a)] The mapping~\(\phi\) is defined from~\((V/M)'\) into~\(V'\). It is injective since if \(y\pi=z\pi\), then
+\[y(x+M)=y(\pi(x))=z(\pi(x))=z(x+M)\]
+for all \(x\in V\), so \(y=z\). To see that \(\ran\phi\subseteq M^0\), note that if \(y\pi\in\ran\phi\), then \(y\pi(x)=y(M)=0\) for all \(x\in M\), so \(y\pi\in M^0\). Conversely, if \(z\in M^0\), define~\(y\) on~\(V/M\) by \(x+M\mapsto z(x)\). Note \(y\)~is well defined and linear since \(z\in M^0\), so \(y\in(V/M)'\), and \(\phi(y)=y\pi=z\). Therefore \(\ran\phi=M^0\). Finally, \(\phi\)~is linear, hence \(\phi:(V/M)'\iso M^0\).
+\item[(b)] The mapping~\(\psi\) is clearly well defined and injective from~\(V'/M^0\) to~\(M'\) since
+\begin{align*}
+y+M^0=z+M^0&\iff y-z\in M^0\\
+	&\iff (y-z)(x)=0\quad(x\in M)\\
+	&\iff y(x)=z(x)\quad(x\in M)\\
+	&\iff\restrict{y}{M}=\restrict{z}{M}
+\end{align*}
+It is also surjective since if \(z\in M'\), then there exists \(y\in V'\) with \(\restrict{y}{M}=z\). Indeed, if \(N\)~is any complement of~\(M\) in~\(V\), define \(y(u+v)=z(u)\) for \(u\in M\) and \(v\in N\). Finally, it is clearly linear, hence an isomorphism.\qedhere
+\end{enumerate}
+\end{proof}
+\begin{rmk}
+Just remember \((V/M)'\iso V'/M'\) (Theorems 20.1~and~22.1).
+\end{rmk}
+
+\begin{exer}[5]
+If \(V\)~is finite-dimensional and \(W=V\dsum V'\), then the mapping \(\pair{x}{y}\mapsto\pair{y}{x}\) is an isomorphism from~\(W\) to~\(W'\).
+\end{exer}
+\begin{proof}
+By taking the dual of the direct sum~\(W\) (Theorem~20.1) and applying reflexivity of~\(V\) (Theorem~16.1), we obtain
+\[W'=(V\dsum V')'=V'\dsum V''=V'\dsum V\]
+Hence the mapping is indeed a mapping from~\(W\) to~\(W'\). It is clearly bijective and linear, hence an isomorphism.
 \end{proof}
 
 % Chapter II
