@@ -198,16 +198,16 @@ Let \((\alpha_i)\in\C^{\infty}\). For \(x=\sum_{i=0}^n\xi_i t^i\in\P\), let \(y(
 \begin{proof}
 Since the coefficients of~\(x\) are uniquely determined, \(y\)~is a well defined function from~\(\P\) to~\(\C\). If \(u=\sum_{i=0}^m\mu_i t^i\), \(v=\sum_{i=0}^n\nu_i t^i\), and \(\mu,\nu\in\C\), we may assume \(m=n\) (using coefficients of zero), and
 \begin{align*}
-y(\mu u+\nu v)&=y\bigl(\,\mu\sum\mu_i t^i+\nu\sum\nu_i t^i\,\bigr)\\
-	&=y\bigl(\,\sum[\,\mu\mu_i+\nu\nu_i]t^i\,\bigr)\\
-	&=\sum(\,\mu\mu_i+\nu\nu_i)\alpha_i\\
-	&=\mu\sum\mu_i\alpha_i+\nu\sum\nu_i\alpha_i\\
+y(\mu u+\nu v)&=y\bigl(\,\mu\sum_i\mu_i t^i+\nu\sum_i\nu_i t^i\,\bigr)\\
+	&=y\bigl(\,\sum_i[\,\mu\mu_i+\nu\nu_i]t^i\,\bigr)\\
+	&=\sum_i(\,\mu\mu_i+\nu\nu_i)\alpha_i\\
+	&=\mu\sum_i\mu_i\alpha_i+\nu\sum_i\nu_i\alpha_i\\
 	&=\mu y(u)+\nu y(v)
 \end{align*}
 Therefore \(y\)~is linear and hence \(y\in\P'\).
 
 If \(z\in\P'\) is arbitrary, set \(\beta_i=[t^i,z]\). Then
-\[\bigl[\,\sum\xi_i t^i,z\bigr]=\sum\xi_i[t^i,z]=\sum\xi_i\beta_i\]
+\[\bigl[\,\sum_i\xi_i t^i,z\bigr]=\sum_i\xi_i[t^i,z]=\sum_i\xi_i\beta_i\]
 so \(z\)~has the desired form for \((\beta_i)\in\C^{\infty}\).
 \end{proof}
 
@@ -379,6 +379,64 @@ By taking the dual of the direct sum~\(W\) (Theorem~20.1) and applying reflexivi
 \[W'=(V\dsum V')'=V'\dsum V''=V'\dsum V\]
 Hence the mapping is indeed a mapping from~\(W\) to~\(W'\). It is clearly bijective and linear, hence an isomorphism.
 \end{proof}
+
+% Section 23
+\subsection*{\S~23}
+\begin{exer}[1]
+Let \(V=\R^n\dsum\R^n\).
+\begin{enumerate}
+\item[(a)] If \(w\)~is a bilinear form on~\(V\), then there exist unique scalars \(\alpha_{ij}\in\R\) for \(1\le i,j\le n\) such that
+\[w(x,y)=\sum_{i=1}^n\sum_{j=1}^n\alpha_{ij}x_iy_j\]
+for all \(x=(x_1,\ldots,x_n)\) and \(y=(y_1,\ldots,y_n)\) in~\(\R^n\).
+\item[(b)] If \(z\)~is a linear functional on the space of all bilinear forms on~\(V\), then there exist unique scalars \(\beta_{ij}\in\R\) for \(1\le i,j\le n\) such that
+\[z(w)=\sum_{i=1}^n\sum_{j=1}^n\alpha_{ij}\beta_{ij}\]
+for all~\(w\) with \(\alpha_{ij}\)~as in~(a).
+\end{enumerate}
+\end{exer}
+\begin{proof}\
+\begin{enumerate}
+\item[(a)] Let \(\{e_1,\ldots,e_n\}\) be the standard basis of~\(\R^n\) (where \(e_i=(\delta_{i1},\ldots,\delta_{in})\)) and let \(\alpha_{ij}=w(e_i,e_j)\) for \(1\le i,j\le n\). Then for \(x=(x_1,\ldots,x_n)\) and \(y=(y_1,\ldots,y_n)\), \(x=\sum_i x_ie_i\) and \(y=\sum_j y_je_j\), so
+\[w(x,y)=\sum_i\sum_jx_iy_jw(e_i,e_j)=\sum_i\sum_j\alpha_{ij}x_iy_j\]
+by bilinearity of~\(w\) (see the proof of Theorem~1). If scalars \(\alpha_{ij}'\in\R\) also satisfy this condition, then
+\[\alpha_{ij}=w(e_i,e_j)=\alpha_{ij}'\qquad(1\le i,j\le n)\]
+\item[(b)]
+Again, let \(\{e_1,\ldots,e_n\}\) be the standard basis of~\(\R^n\) and let \(w_{pq}\) (\(1\le p,q\le n\)) be the corresponding `standard' basis of the space of all bilinear forms on~\(V\) (Theorem~2). Let \(\beta_{ij}=z(w_{ij})\) for \(1\le i,j\le n\). Then for a bilinear form~\(w\) as in~(a), \(w=\sum_i\sum_j\alpha_{ij}w_{ij}\) by bilinearity of~\(w\) (see the proof of Theorem~2), so
+\[z(w)=\sum_i\sum_j\alpha_{ij}z(w_{ij})=\sum_i\sum_j\alpha_{ij}\beta_{ij}\]
+by linearity of~\(z\) (see the proof of Theorem~15.1). If scalars \(\beta_{ij}'\in\R\) also satisfy this condition, then
+\[\beta_{ij}=z(w_{ij})=\beta_{ij}'\qquad(1\le i,j\le n)\qedhere\]
+\end{enumerate}
+\end{proof}
+\begin{rmk}
+If \(x=(x_1,\ldots,x_n)\) and \(y=(y_1,\ldots,y_n)\), let \(\beta_{ij}=x_iy_j\) for \(1\le i,j\le n\). Then \(z\)~in~(b) is the tensor product of \(x\)~and~\(y\) (Definition~25.1), which is intuitively just~\(\beta\).
+\end{rmk}
+
+\begin{exer}[2]
+Let \(V=\C^2\dsum\C^2\).
+\begin{enumerate}
+\item[(a)] The mapping \(\pair{(x_1,x_2)}{(y_1,y_2)}\mapsto x_1y_1\) is a degenerate bilinear form on~\(V\).
+\item[(b)] The mapping \(\pair{(x_1,x_2)}{(y_1,y_2)}\mapsto x_1y_1+x_2y_2\) is a non-degenerate bilinear form on~\(V\).
+\end{enumerate}
+\end{exer}
+\begin{proof}\
+\begin{enumerate}
+\item[(a)] The mapping is clearly bilinear. It is degenerate since \(\pair{(0,1)}{(y_1,y_2)}\mapsto 0\) for all \((y_1,y_2)\in\C^2\).
+\item[(b)] The mapping is clearly bilinear. If \(x_1,x_2\in\C\) and \(x_1y_1+x_2y_2=0\) for all \(y_1,y_2\in\C\), then in particular \(x_1=x_1\cdot1+x_2\cdot0=0\) and \(x_2=x_1\cdot0+x_2\cdot1=0\). Similarly if \(y_1,y_2\in\C\) and \(x_1y_1+x_2y_2=0\) for all \(x_1,x_2\in\C\), then \(y_1=y_2=0\). Therefore the mapping is non-degenerate.\qedhere
+\end{enumerate}
+\end{proof}
+\begin{rmk}
+The mapping in~(b), restricted to~\(\R^n\), is just the dot product, which reflects the extent to which two nonzero vectors point in the same direction geometrically.
+\end{rmk}
+
+\begin{exer}[5]
+The mapping \(w:\pair{(x_1,x_2)}{(y_1,y_2)}\mapsto x_1y_2-x_2y_1\) is a nonzero bilinear form on~\(\C^2\dsum\C^2\) with \(w(x,x)=0\) for all \(x\in\C^2\).
+\end{exer}
+\begin{proof}
+The mapping~\(w\) is clearly bilinear and nonzero, and
+\[w((x_1,x_2),(x_1,x_2))=x_1x_2-x_1x_2=0\qquad((x_1,x_2)\in\C^2)\qedhere\]
+\end{proof}
+\begin{rmk}
+This mapping is just the 2-by-2 determinant, which reflects the linear dependence (collinearity) of two vectors geometrically. See Exercise~7.5.
+\end{rmk}
 
 % Chapter II
 \section*{Chapter~II}
