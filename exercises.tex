@@ -16,6 +16,7 @@
 \newcommand{\union}{\cup}
 \newcommand{\sect}{\cap}
 \newcommand{\dsum}{\oplus}
+\newcommand{\tprod}{\otimes}
 \newcommand{\bigunion}{\bigcup}
 \newcommand{\bigsect}{\bigcap}
 
@@ -307,7 +308,7 @@ This result implies that a homogeneous system of \(m\)~linear equations in \(n\)
 \end{aligned}
 \right.\qquad(\alpha_{ij}\in\F)
 \end{equation*}
-For \(x=(x_1,\ldots,x_n)\in\F^n\), define~\(y_j\) by \([x,y_j]=\sum_i\alpha_{ij}x_i\) for \(1\le j\le m\). Clearly this system has a nontrivial solution if and only if there exists a nonzero \(x\in\F^n\) such that \([x,y_j]=0\) for all \(1\le j\le m\), which is true by this result.
+For \(\vec{x}=(x_1,\ldots,x_n)\in\F^n\), define~\(y_j\) by \([x,y_j]=\sum_i\alpha_{ij}x_i\) for \(1\le j\le m\). Clearly this system has a nontrivial solution if and only if there exists a nonzero \(\vec{x}\in\F^n\) such that \([x,y_j]=0\) for all \(1\le j\le m\), which is true by this result.
 \end{rmk}
 
 \begin{exer}[7]
@@ -386,8 +387,8 @@ Hence the mapping is indeed a mapping from~\(W\) to~\(W'\). It is clearly biject
 Let \(V=\R^n\dsum\R^n\).
 \begin{enumerate}
 \item[(a)] If \(w\)~is a bilinear form on~\(V\), then there exist unique scalars \(\alpha_{ij}\in\R\) for \(1\le i,j\le n\) such that
-\[w(x,y)=\sum_{i=1}^n\sum_{j=1}^n\alpha_{ij}x_iy_j\]
-for all \(x=(x_1,\ldots,x_n)\) and \(y=(y_1,\ldots,y_n)\) in~\(\R^n\).
+\[w(\vec{x},\vec{y})=\sum_{i=1}^n\sum_{j=1}^n\alpha_{ij}x_iy_j\]
+for all \(\vec{x}=(x_1,\ldots,x_n)\) and \(\vec{y}=(y_1,\ldots,y_n)\) in~\(\R^n\).
 \item[(b)] If \(z\)~is a linear functional on the space of all bilinear forms on~\(V\), then there exist unique scalars \(\beta_{ij}\in\R\) for \(1\le i,j\le n\) such that
 \[z(w)=\sum_{i=1}^n\sum_{j=1}^n\alpha_{ij}\beta_{ij}\]
 for all~\(w\) with \(\alpha_{ij}\)~as in~(a).
@@ -395,19 +396,19 @@ for all~\(w\) with \(\alpha_{ij}\)~as in~(a).
 \end{exer}
 \begin{proof}\
 \begin{enumerate}
-\item[(a)] Let \(\{e_1,\ldots,e_n\}\) be the standard basis of~\(\R^n\) (where \(e_i=(\delta_{i1},\ldots,\delta_{in})\)) and let \(\alpha_{ij}=w(e_i,e_j)\) for \(1\le i,j\le n\). Then for \(x=(x_1,\ldots,x_n)\) and \(y=(y_1,\ldots,y_n)\), \(x=\sum_i x_ie_i\) and \(y=\sum_j y_je_j\), so
-\[w(x,y)=\sum_i\sum_jx_iy_jw(e_i,e_j)=\sum_i\sum_j\alpha_{ij}x_iy_j\]
+\item[(a)] Let \(\{\vec{e_1},\ldots,\vec{e_n}\}\) be the standard basis of~\(\R^n\) (where \(\vec{e_i}=(\delta_{i1},\ldots,\delta_{in})\)) and let \(\alpha_{ij}=w(\vec{e_i},\vec{e_j})\) for \(1\le i,j\le n\). Then for \(\vec{x}=(x_1,\ldots,x_n)\) and \(\vec{y}=(y_1,\ldots,y_n)\), \(\vec{x}=\sum_i x_i\vec{e_i}\) and \(\vec{y}=\sum_j y_j\vec{e_j}\), so
+\[w(\vec{x},\vec{y})=\sum_i\sum_jx_iy_jw(\vec{e_i},\vec{e_j})=\sum_i\sum_j\alpha_{ij}x_iy_j\]
 by bilinearity of~\(w\) (see the proof of Theorem~1). If scalars \(\alpha_{ij}'\in\R\) also satisfy this condition, then
-\[\alpha_{ij}=w(e_i,e_j)=\alpha_{ij}'\qquad(1\le i,j\le n)\]
+\[\alpha_{ij}=w(\vec{e_i},\vec{e_j})=\alpha_{ij}'\qquad(1\le i,j\le n)\]
 \item[(b)]
-Again, let \(\{e_1,\ldots,e_n\}\) be the standard basis of~\(\R^n\) and let \(w_{pq}\) (\(1\le p,q\le n\)) be the corresponding `standard' basis of the space of all bilinear forms on~\(V\) (Theorem~2). Let \(\beta_{ij}=z(w_{ij})\) for \(1\le i,j\le n\). Then for a bilinear form~\(w\) as in~(a), \(w=\sum_i\sum_j\alpha_{ij}w_{ij}\) by bilinearity of~\(w\) (see the proof of Theorem~2), so
+Again, let \(\{\vec{e_1},\ldots,\vec{e_n}\}\) be the standard basis of~\(\R^n\) and let \(w_{pq}\) (\(1\le p,q\le n\)) be the corresponding `standard' basis of the space of all bilinear forms on~\(V\) (Theorem~2). Let \(\beta_{ij}=z(w_{ij})\) for \(1\le i,j\le n\). Then for a bilinear form~\(w\) as in~(a), \(w=\sum_i\sum_j\alpha_{ij}w_{ij}\) by bilinearity of~\(w\) (see the proof of Theorem~2), so
 \[z(w)=\sum_i\sum_j\alpha_{ij}z(w_{ij})=\sum_i\sum_j\alpha_{ij}\beta_{ij}\]
 by linearity of~\(z\) (see the proof of Theorem~15.1). If scalars \(\beta_{ij}'\in\R\) also satisfy this condition, then
 \[\beta_{ij}=z(w_{ij})=\beta_{ij}'\qquad(1\le i,j\le n)\qedhere\]
 \end{enumerate}
 \end{proof}
 \begin{rmk}
-If \(x=(x_1,\ldots,x_n)\) and \(y=(y_1,\ldots,y_n)\), let \(\beta_{ij}=x_iy_j\) for \(1\le i,j\le n\). Then \(z\)~in~(b) is the tensor product of \(x\)~and~\(y\) (Definition~25.1), which is intuitively just~\(\beta\).
+If \(\vec{x}=(x_1,\ldots,x_n)\) and \(\vec{y}=(y_1,\ldots,y_n)\), let \(\beta_{ij}=x_iy_j\) for \(1\le i,j\le n\). Then \(z\)~in~(b) is the tensor product of \(\vec{x}\)~and~\(\vec{y}\) (Definition~25.1), which is intuitively just~\(\beta\).
 \end{rmk}
 
 \begin{exer}[2]
@@ -438,13 +439,69 @@ The mapping~\(w\) is clearly bilinear and nonzero, and
 This mapping is just the 2-by-2 determinant, which reflects the linear dependence (collinearity) of two vectors geometrically. See Exercise~7.5.
 \end{rmk}
 
+% Section 25
+\subsection*{\S~25}
+\begin{exer}[2]
+Let \(\P_{n,m}\)~be the space of all polynomials~\(z(s,t)\) such that either \(z=0\) or else \(\deg_s z\le n-1\) and \(\deg_t z\le m-1\). Then there exists an isomorphism \(\P_n\tprod\P_m\iso\P_{n,m}\) such that \(x\tprod y\mapsto xy\) for all \(x\in\P_n\) and \(y\in\P_m\).
+\end{exer}
+\begin{proof}
+Let \(\{1,s,\ldots,s^{n-1}\}\) be a basis of~\(\P_n\) and \(\{1,t,\ldots,t^{m-1}\}\) be a basis of~\(\P_m\). Then \(\{s^i\tprod t^j\}\)~is a basis of~\(\P_n\tprod\P_m\) (Theorem~1). We claim that \(\{s^it^j\}\)~is a basis of~\(\P_{n,m}\). Indeed, the set is linearly independent, since if
+\[z(s,t)=\sum_i\sum_j\alpha_{ij}s^it^j=0\]
+then \(z\)~has infinitely many roots, so \(\alpha_{ij}=0\) for all~\(i,j\). Also, the set spans~\(\P_{n,m}\) by definition.
+
+Let \(\pi\)~be the isomorphism from~\(\P_n\tprod\P_m\) to~\(\P_{n,m}\) such that \(s^i\tprod t^j\mapsto s^it^j\) for all~\(i,j\) (Theorem~9.1). Then for \(x(s)=\sum_i\alpha_is^i\in\P_n\) and \(y(t)=\sum_j\beta_jt^j\in\P_m\),
+\begin{align*}
+\pi(x\tprod y)&=\pi\bigl[\,\sum_i\sum_j\alpha_i\beta_j(s^i\tprod t^j)\bigr]\\
+	&=\sum_i\sum_j\alpha_i\beta_j\pi(s^i\tprod t^j)\\
+	&=\sum_i\sum_j\alpha_i\beta_js^i t^j\\
+	&=\bigl(\,\sum_i\alpha_is^i\bigr)\bigl(\,\sum_j\beta_jt^j\bigr)\\
+	&=xy\qedhere
+\end{align*}
+\end{proof}
+
+\begin{exer}[3]
+Let \(U,V,W\) be finite-dimensional vector spaces.
+\begin{enumerate}
+\item[(a)] \(U\tprod V\iso V\tprod U\)
+\item[(b)] \((U\tprod V)\tprod W\iso U\tprod(V\tprod W)\)
+\item[(c)] \(U\tprod(V\dsum W)=(U\tprod V)\dsum(U\tprod W)\)
+\end{enumerate}
+\end{exer}
+\begin{proof}\
+\begin{enumerate}
+\item[(a)] The map \(x\tprod y\mapsto y\tprod x\) is an isomorphism.
+\item[(b)] The map \((x\tprod y)\tprod z\mapsto x\tprod(y\tprod z)\) is an isomorphism.
+\item[(c)] The two spaces have the same basis.\qedhere
+\end{enumerate}
+\end{proof}
+
+\begin{exer}[4]
+There exists a finite-dimensional vector space~\(V\) and vectors \(x,y\in V\) such that \(x\tprod y\ne y\tprod x\).
+\end{exer}
+\begin{proof}
+Let \(V=\C^2\), so \(\vec{e_1}=(1,0)\) and \(\vec{e_2}=(0,1)\). Then
+\[\vec{e_1}\tprod\vec{e_2}=
+	\begin{pmatrix}
+		0&1\\
+		0&0
+	\end{pmatrix}\neq
+	\begin{pmatrix}
+		0&0\\
+		1&0
+	\end{pmatrix}
+=\vec{e_2}\tprod\vec{e_1}\qedhere\]
+\end{proof}
+\begin{rmk}
+This result shows that the vector tensor product is not commutative.
+\end{rmk}
+
 % Chapter II
 \section*{Chapter~II}
 % Section 49
 \subsection*{\S~49}
 \begin{exer}[4]
 Let \(V\)~be a vector space and \(E\)~and~\(F\) be projections on~\(V\).
-\begin{enumerate}[itemsep=0pt]
+\begin{enumerate}
 \item[(a)] \(\ran(E)=\ran(F)\) if and only if \(EF=F\) and \(FE=E\).
 \item[(b)] \(\ker(E)=\ker(F)\) if and only if \(EF=E\) and \(FE=F\).
 \end{enumerate}
@@ -452,7 +509,7 @@ Let \(V\)~be a vector space and \(E\)~and~\(F\) be projections on~\(V\).
 \begin{proof}
 Recall for a projection~\(P\) on~\(V\), \(V=\ran(P)\dsum\ker(P)\) and (Theorem~41.2)
 \[\ran(P)=\{\,x\in V\mid Px=x\,\}\qquad\ker(P)=\{\,x\in V\mid Px=0\,\}\]
-\begin{enumerate}[itemsep=0pt]
+\begin{enumerate}
 \item[(a)]
 \begin{fwd}
 If \(x\in V\), then \(Ex\in\ran(E)\subseteq\ran(F)\), so \(FEx=F(Ex)=Ex\). Therefore \(FE=E\). Similarly \(EF=F\).
