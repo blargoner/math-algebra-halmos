@@ -585,6 +585,10 @@ So \(\det(A_0-\lambda)\) is a factor of \(\det(A-\lambda)\). Now \((A_0-\lambda)
 \subsection*{\S~56}
 \begin{rmk}
 We clarify Halmos' remark (p.~107) that \(\det(A-\alpha_{ii})=0\) for each of the diagonal entries~\(\alpha_{ii}\) in an upper triangular matrix~\([A]\) for~\(A\). Observe from the matrix~\([A-\alpha_{ii}]\) (on the same basis) that \(\restrict{(A-\alpha_{ii})}{M_i}\) maps the \(i\)-dimensional subspace~\(M_i\) into the \((i-1)\)-dimensional subspace~\(M_{i-1}\). Hence by rank nullity (Theorem~50.1), \(\dim\ker(A-\alpha_{ii})\ne0\), so \(A-\alpha_{ii}\)~is not invertible (\S~49, p.~89), so \(\det(A-\alpha_{ii})=0\) (\S~53, p.~99).
+
+Alternately, observe from the equation for the determinant (Equation~53.2) that the determinant of an upper triangular matrix is the product of its diagonal entries. Since \([A-\lambda]\) (on the same basis) is upper triangular,
+\[\det(A-\lambda)=\prod_i(\alpha_{ii}-\lambda)\]
+This shows \(\det(A-\alpha_{ii})=0\), so \(\alpha_{ii}\)~is an eigenvalue of~\(A\), and \(\alpha_{ii}\)~appears on the diagonal of~\([A]\) as many times as its algebraic multiplicity.
 \end{rmk}
 
 % References
